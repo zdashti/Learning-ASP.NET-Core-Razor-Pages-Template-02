@@ -117,8 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Author" xml:space="preserve">
+    <value>Author</value>
+  </data>
   <data name="Blog" xml:space="preserve">
     <value>Blog</value>
+  </data>
+  <data name="Body" xml:space="preserve">
+    <value>Body</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
   </data>
   <data name="CellPhoneNumber" xml:space="preserve">
     <value>Cell Phone Number</value>
@@ -126,8 +135,20 @@
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Confirm Password</value>
   </data>
+  <data name="CreatorUserId" xml:space="preserve">
+    <value>Creator UserId</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>Deleted</value>
+  </data>
+  <data name="DeleteDateTime" xml:space="preserve">
+    <value>Delete Time</value>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>Description</value>
+  </data>
+  <data name="DoesSearchEnginesIndexIt" xml:space="preserve">
+    <value>Does Search Engines Index It</value>
   </data>
   <data name="EmailAddress" xml:space="preserve">
     <value>Email Address</value>
@@ -138,8 +159,14 @@
   <data name="FullName" xml:space="preserve">
     <value>Full Name</value>
   </data>
+  <data name="Hits" xml:space="preserve">
+    <value>Hits</value>
+  </data>
   <data name="Id" xml:space="preserve">
     <value>Id</value>
+  </data>
+  <data name="ImageUrl" xml:space="preserve">
+    <value>ImageUrl</value>
   </data>
   <data name="InsertDateTime" xml:space="preserve">
     <value>Insert Time</value>
@@ -147,11 +174,29 @@
   <data name="IsActive" xml:space="preserve">
     <value>Active</value>
   </data>
+  <data name="IsCommentingEnabled" xml:space="preserve">
+    <value>Is Commenting Enabled</value>
+  </data>
+  <data name="IsDeletable" xml:space="preserve">
+    <value>Is Deletable</value>
+  </data>
+  <data name="IsSystemic" xml:space="preserve">
+    <value>Is Systemic</value>
+  </data>
+  <data name="IsUpdatable" xml:space="preserve">
+    <value>Is Updatable</value>
+  </data>
+  <data name="Keywords" xml:space="preserve">
+    <value>Keywords</value>
+  </data>
   <data name="Language" xml:space="preserve">
     <value>Language</value>
   </data>
   <data name="Languages" xml:space="preserve">
     <value>Languages</value>
+  </data>
+  <data name="Layout" xml:space="preserve">
+    <value>Layout</value>
   </data>
   <data name="List" xml:space="preserve">
     <value>List</value>
@@ -165,11 +210,23 @@
   <data name="Ordering" xml:space="preserve">
     <value>Ordering</value>
   </data>
+  <data name="Parent" xml:space="preserve">
+    <value>Parent</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="PublishFinishDateTime" xml:space="preserve">
+    <value>Publish Finish Time</value>
+  </data>
+  <data name="PublishStartDateTime" xml:space="preserve">
+    <value>Publish Start Time</value>
+  </data>
   <data name="RememberMe" xml:space="preserve">
     <value>Remember Me</value>
+  </data>
+  <data name="RemoverUserId" xml:space="preserve">
+    <value>Remover UserId</value>
   </data>
   <data name="Resume" xml:space="preserve">
     <value>Resume</value>
@@ -191,6 +248,9 @@
   </data>
   <data name="UpdateDateTime" xml:space="preserve">
     <value>Update Time</value>
+  </data>
+  <data name="UpdaterUserId" xml:space="preserve">
+    <value>Updater UserId</value>
   </data>
   <data name="Username" xml:space="preserve">
     <value>Username</value>

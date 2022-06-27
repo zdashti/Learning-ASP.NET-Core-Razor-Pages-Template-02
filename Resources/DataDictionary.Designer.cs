@@ -61,11 +61,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Author.
+        /// </summary>
+        public static string Author {
+            get {
+                return ResourceManager.GetString("Author", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Blog.
         /// </summary>
         public static string Blog {
             get {
                 return ResourceManager.GetString("Blog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Body.
+        /// </summary>
+        public static string Body {
+            get {
+                return ResourceManager.GetString("Body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Category.
+        /// </summary>
+        public static string Category {
+            get {
+                return ResourceManager.GetString("Category", resourceCulture);
             }
         }
         
@@ -88,11 +115,47 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Creator UserId.
+        /// </summary>
+        public static string CreatorUserId {
+            get {
+                return ResourceManager.GetString("CreatorUserId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deleted.
+        /// </summary>
+        public static string Deleted {
+            get {
+                return ResourceManager.GetString("Deleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Time.
+        /// </summary>
+        public static string DeleteDateTime {
+            get {
+                return ResourceManager.GetString("DeleteDateTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Description.
         /// </summary>
         public static string Description {
             get {
                 return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Does Search Engines Index It.
+        /// </summary>
+        public static string DoesSearchEnginesIndexIt {
+            get {
+                return ResourceManager.GetString("DoesSearchEnginesIndexIt", resourceCulture);
             }
         }
         
@@ -124,11 +187,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hits.
+        /// </summary>
+        public static string Hits {
+            get {
+                return ResourceManager.GetString("Hits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Id.
         /// </summary>
         public static string Id {
             get {
                 return ResourceManager.GetString("Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ImageUrl.
+        /// </summary>
+        public static string ImageUrl {
+            get {
+                return ResourceManager.GetString("ImageUrl", resourceCulture);
             }
         }
         
@@ -151,6 +232,51 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Is Commenting Enabled.
+        /// </summary>
+        public static string IsCommentingEnabled {
+            get {
+                return ResourceManager.GetString("IsCommentingEnabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is Deletable.
+        /// </summary>
+        public static string IsDeletable {
+            get {
+                return ResourceManager.GetString("IsDeletable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is Systemic.
+        /// </summary>
+        public static string IsSystemic {
+            get {
+                return ResourceManager.GetString("IsSystemic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is Updatable.
+        /// </summary>
+        public static string IsUpdatable {
+            get {
+                return ResourceManager.GetString("IsUpdatable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keywords.
+        /// </summary>
+        public static string Keywords {
+            get {
+                return ResourceManager.GetString("Keywords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Language.
         /// </summary>
         public static string Language {
@@ -165,6 +291,15 @@ namespace Resources {
         public static string Languages {
             get {
                 return ResourceManager.GetString("Languages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Layout.
+        /// </summary>
+        public static string Layout {
+            get {
+                return ResourceManager.GetString("Layout", resourceCulture);
             }
         }
         
@@ -205,6 +340,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Parent.
+        /// </summary>
+        public static string Parent {
+            get {
+                return ResourceManager.GetString("Parent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Password {
@@ -214,11 +358,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Publish Finish Time.
+        /// </summary>
+        public static string PublishFinishDateTime {
+            get {
+                return ResourceManager.GetString("PublishFinishDateTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Publish Start Time.
+        /// </summary>
+        public static string PublishStartDateTime {
+            get {
+                return ResourceManager.GetString("PublishStartDateTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remember Me.
         /// </summary>
         public static string RememberMe {
             get {
                 return ResourceManager.GetString("RememberMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remover UserId.
+        /// </summary>
+        public static string RemoverUserId {
+            get {
+                return ResourceManager.GetString("RemoverUserId", resourceCulture);
             }
         }
         
@@ -282,6 +453,15 @@ namespace Resources {
         public static string UpdateDateTime {
             get {
                 return ResourceManager.GetString("UpdateDateTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updater UserId.
+        /// </summary>
+        public static string UpdaterUserId {
+            get {
+                return ResourceManager.GetString("UpdaterUserId", resourceCulture);
             }
         }
         

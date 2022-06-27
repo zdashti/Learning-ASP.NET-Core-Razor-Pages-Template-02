@@ -132,8 +132,14 @@
   <data name="Contact" xml:space="preserve">
     <value>Contact</value>
   </data>
+  <data name="CreatePage" xml:space="preserve">
+    <value>Create Page</value>
+  </data>
   <data name="DeactivateAccount" xml:space="preserve">
     <value>Deactivate Account</value>
+  </data>
+  <data name="DeletePage" xml:space="preserve">
+    <value>Delete Page</value>
   </data>
   <data name="Error500" xml:space="preserve">
     <value>Internal Server Error!</value>
@@ -150,6 +156,12 @@
   <data name="Logout" xml:space="preserve">
     <value>Logout</value>
   </data>
+  <data name="PageDetails" xml:space="preserve">
+    <value>Page Details</value>
+  </data>
+  <data name="PageIndex" xml:space="preserve">
+    <value>Page Index</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>Profile</value>
   </data>
@@ -161,6 +173,9 @@
   </data>
   <data name="UnexpectedError" xml:space="preserve">
     <value>Unexpected Error!</value>
+  </data>
+  <data name="UpdatePage" xml:space="preserve">
+    <value>Update Page</value>
   </data>
   <data name="UpdateProfile" xml:space="preserve">
     <value>Update Profile</value>

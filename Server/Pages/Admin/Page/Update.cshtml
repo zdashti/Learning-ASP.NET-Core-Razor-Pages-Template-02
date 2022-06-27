@@ -1,0 +1,147 @@
+﻿@page
+@model Server.Pages.Admin.Page.UpdateModel
+@{
+    var pageTitle =
+        Resources.PageTitles.UpdatePage;
+
+    ViewData["PageTitle"] = pageTitle;
+}
+
+<form method="post">
+
+    <div class="container my-0 my-sm-1 my-md-3 my-lg-5">
+        <div class="row">
+            <div class="col-12 p-3   col-md-8 offset-md-2 p-md-4   col-lg-6 offset-lg-3 p-lg-5   bg-light border border-2 rounded-3 shadow-lg">
+                <fieldset>
+                    <legend>
+                        @(pageTitle)
+                    </legend>
+
+                    <hr />
+
+                    <div class="mb-3">
+                        <label asp-for="ViewModel.Title" class="form-label"></label>
+
+                        <div class="input-group">
+                            <div class="input-group-text"><i class="bi bi-fonts"></i></div>
+                            <input asp-for="ViewModel.Title" class="form-control"/>
+                        </div>
+
+                        <span asp-validation-for="ViewModel.Title" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="ViewModel.Author" class="form-label"></label>
+
+                        <div class="input-group">
+                            <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
+                            <input asp-for="ViewModel.Author" class="form-control"/>
+                        </div>
+
+                        <span asp-validation-for="ViewModel.Author" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="ViewModel.Keywords" class="form-label"></label>
+
+                        <div class="input-group">
+                            <div class="input-group-text"><i class="bi bi-journal-text"></i></div>
+                            <input asp-for="ViewModel.Keywords" class="form-control"/>
+                        </div>
+
+                        <span asp-validation-for="ViewModel.Keywords" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="ViewModel.Description" class="form-label"></label>
+
+                        <div class="input-group">
+                            <div class="input-group-text"><i class="bi bi-file-text"></i></div>
+                            <input asp-for="ViewModel.Description" class="form-control"/>
+                        </div>
+
+                        <span asp-validation-for="ViewModel.Description" class="text-danger"></span>
+                    </div>
+					
+                    <div class="mb-3">
+                        <label asp-for="ViewModel.Body" class="form-label"></label>
+
+                        <div class="input-group">
+                            <div class="input-group-text"><i class="bi bi-body-text"></i></div>
+                            <textarea asp-for="ViewModel.Body" class="form-control"></textarea>
+                        </div>
+
+                        <span asp-validation-for="ViewModel.Body" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="ViewModel.PublishStartDateTime" class="form-label"></label>
+
+                        <div class="input-group">
+                            <div class="input-group-text"><i class="bi bi bi-calendar-check"></i></div>
+                            <input asp-for="ViewModel.PublishStartDateTime" class="form-control" type="date"/>
+                        </div>
+
+                        <span asp-validation-for="ViewModel.PublishStartDateTime" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label asp-for="ViewModel.PublishFinishDateTime" class="form-label"></label>
+
+                        <div class="input-group">
+                            <div class="input-group-text"><i class="bi bi bi-calendar-minus"></i></div>
+                            <input asp-for="ViewModel.PublishFinishDateTime" class="form-control" type="date"/>
+                        </div>
+
+                        <span asp-validation-for="ViewModel.PublishFinishDateTime" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="ViewModel.ImageUrl" class="form-label"></label>
+
+                        <div class="input-group">
+                            <div class="input-group-text"><i class="bi bi-card-image"></i></div>
+                            <input asp-for="ViewModel.ImageUrl" class="form-control"/>
+                        </div>
+
+                        <span asp-validation-for="ViewModel.ImageUrl" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label asp-for="ViewModel.Category" class="form-label"></label>
+
+                        <div class="input-group">
+                            <div class="input-group-text"><i class="bi bi-columns-gap"></i></div>
+                            <input asp-for="ViewModel.Category" class="form-control"/>
+                        </div>
+
+                        <span asp-validation-for="ViewModel.Category" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input asp-for="ViewModel.IsActive" class="form-check-input" />
+                            <label asp-for="ViewModel.IsActive" class="form-check-label"></label>
+                        </div>
+                    </div>
+					
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input asp-for="ViewModel.IsCommentingEnabled" class="form-check-input" />
+                            <label asp-for="ViewModel.IsCommentingEnabled" class="form-check-label"></label>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">@(Resources.ButtonCaptions.Edit)</button>
+                    </div>
+                </fieldset>
+
+                <hr class="mt-4" />
+                <div class="text-center">
+                    <a asp-page="./Index">@(Resources.ButtonCaptions.BackToList)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

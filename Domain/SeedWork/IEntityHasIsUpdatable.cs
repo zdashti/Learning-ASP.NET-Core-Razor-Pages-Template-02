@@ -1,7 +1,7 @@
 ﻿namespace Domain.SeedWork
 {
-	public interface IEntityHasIsUpdatable : IEntityHasUpdateDateTime
-	{
-		bool IsUpdatable { get; set; }
-	}
+    public interface IEntityHasIsUpdatable : IEntityHasUpdateDateTime
+    {
+        bool IsUpdatable { get; set; }
+    }
 }

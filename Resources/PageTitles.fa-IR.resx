@@ -132,8 +132,14 @@
   <data name="Contact" xml:space="preserve">
     <value>تماس با ما</value>
   </data>
+  <data name="CreatePage" xml:space="preserve">
+    <value>ایجاد صفحه</value>
+  </data>
   <data name="DeactivateAccount" xml:space="preserve">
     <value>غیرفعال کردن حساب کاربری</value>
+  </data>
+  <data name="DeletePage" xml:space="preserve">
+    <value>حذف صفحه</value>
   </data>
   <data name="Error500" xml:space="preserve">
     <value>خطای داخلی سرور!</value>
@@ -150,6 +156,12 @@
   <data name="Logout" xml:space="preserve">
     <value>خروج</value>
   </data>
+  <data name="PageDetails" xml:space="preserve">
+    <value>جزئیات صفحه</value>
+  </data>
+  <data name="PageIndex" xml:space="preserve">
+    <value>لیست صفحات</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>پروفایل</value>
   </data>
@@ -161,6 +173,9 @@
   </data>
   <data name="UnexpectedError" xml:space="preserve">
     <value>خطای ناشناخته!</value>
+  </data>
+  <data name="UpdatePage" xml:space="preserve">
+    <value>ویرایش صفحه</value>
   </data>
   <data name="UpdateProfile" xml:space="preserve">
     <value>ویرایش مشخصات</value>

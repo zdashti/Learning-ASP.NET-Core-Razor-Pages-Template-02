@@ -1,27 +1,26 @@
 ﻿// **************************************************
 using Infrastructure.Middlewares;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 // **************************************************
 
 // **************************************************
 var webApplicationOptions =
-	new Microsoft.AspNetCore.Builder.WebApplicationOptions
-	{
-		EnvironmentName =
-			System.Diagnostics.Debugger.IsAttached ?
-			Microsoft.Extensions.Hosting.Environments.Development
-			:
-			Microsoft.Extensions.Hosting.Environments.Production,
-	};
+    new Microsoft.AspNetCore.Builder.WebApplicationOptions
+    {
+        EnvironmentName =
+            System.Diagnostics.Debugger.IsAttached ?
+            Microsoft.Extensions.Hosting.Environments.Development
+            :
+            Microsoft.Extensions.Hosting.Environments.Production,
+    };
 
 var builder =
-	Microsoft.AspNetCore.Builder
-	.WebApplication.CreateBuilder(options: webApplicationOptions);
+    Microsoft.AspNetCore.Builder
+    .WebApplication.CreateBuilder(options: webApplicationOptions);
 // **************************************************
 
 // **************************************************
@@ -32,11 +31,11 @@ builder.Services.AddHttpContextAccessor();
 // **************************************************
 builder.Services.AddRouting(options =>
 {
-	options.LowercaseUrls = true;
-	options.LowercaseQueryStrings = true;
+    options.LowercaseUrls = true;
+    options.LowercaseQueryStrings = true;
 
-	//options.AppendTrailingSlash
-	//options.SuppressCheckForUnhandledSecurityMetadata = false;
+    //options.AppendTrailingSlash
+    //options.SuppressCheckForUnhandledSecurityMetadata = false;
 });
 // **************************************************
 
@@ -48,27 +47,27 @@ builder.Services.AddRazorPages();
 // **************************************************
 // Configure()-> using Microsoft.Extensions.DependencyInjection;
 builder.Services.Configure<Infrastructure.Settings.ApplicationSettings>
-	(builder.Configuration.GetSection(key: Infrastructure.Settings.ApplicationSettings.KeyName))
-	// AddSingleton()-> using Microsoft.Extensions.DependencyInjection;
-	.AddSingleton
-	(implementationFactory: serviceType =>
-	{
-		var result =
-			// GetRequiredService()-> using Microsoft.Extensions.DependencyInjection;
-			serviceType.GetRequiredService
-			<Microsoft.Extensions.Options.IOptions
-			<Infrastructure.Settings.ApplicationSettings>>().Value;
+    (builder.Configuration.GetSection(key: Infrastructure.Settings.ApplicationSettings.KeyName))
+    // AddSingleton()-> using Microsoft.Extensions.DependencyInjection;
+    .AddSingleton
+    (implementationFactory: serviceType =>
+    {
+        var result =
+            // GetRequiredService()-> using Microsoft.Extensions.DependencyInjection;
+            serviceType.GetRequiredService
+            <Microsoft.Extensions.Options.IOptions
+            <Infrastructure.Settings.ApplicationSettings>>().Value;
 
-		return result;
-	});
+        return result;
+    });
 // **************************************************
 
 // **************************************************
 // **************************************************
 // **************************************************
 builder.Services
-	.AddAuthentication(defaultScheme: Infrastructure.Security.Utility.AuthenticationScheme)
-	.AddCookie(authenticationScheme: Infrastructure.Security.Utility.AuthenticationScheme);
+    .AddAuthentication(defaultScheme: Infrastructure.Security.Utility.AuthenticationScheme)
+    .AddCookie(authenticationScheme: Infrastructure.Security.Utility.AuthenticationScheme);
 // **************************************************
 
 // **************************************************
@@ -96,54 +95,54 @@ builder.Services
 // **************************************************
 // GetConnectionString() -> using Microsoft.Extensions.Configuration;
 var connectionString =
-	builder.Configuration.GetConnectionString(name: "ConnectionString");
+    builder.Configuration.GetConnectionString(name: "ConnectionString01");
 
 // AddDbContext -> using Microsoft.Extensions.DependencyInjection;
 builder.Services.AddDbContext<Persistence.DatabaseContext>
-	(optionsAction: options =>
-	{
-		options
-			// using Microsoft.EntityFrameworkCore;
-			.UseLazyLoadingProxies();
+    (optionsAction: options =>
+    {
+        options
+            // using Microsoft.EntityFrameworkCore;
+            .UseLazyLoadingProxies();
 
-		options
-			// using Microsoft.EntityFrameworkCore;
-			.UseSqlServer(connectionString: connectionString);
-	});
+        options
+            // using Microsoft.EntityFrameworkCore;
+            .UseSqlServer(connectionString: connectionString);
+    });
 // **************************************************
 
 // **************************************************
 var app =
-	builder.Build();
+    builder.Build();
 // **************************************************
 
 // IsDevelopment() -> using Microsoft.Extensions.Hosting;
 if (app.Environment.IsDevelopment())
 {
-	// **************************************************
-	// UseDeveloperExceptionPage() -> using Microsoft.AspNetCore.Builder;
-	app.UseDeveloperExceptionPage();
-	// **************************************************
+    // **************************************************
+    // UseDeveloperExceptionPage() -> using Microsoft.AspNetCore.Builder;
+    app.UseDeveloperExceptionPage();
+    // **************************************************
 }
 else
 {
-	// **************************************************
-	// UseGlobalException() -> using Infrastructure.Middlewares;
-	app.UseGlobalException();
-	// **************************************************
+    // **************************************************
+    // UseGlobalException() -> using Infrastructure.Middlewares;
+    app.UseGlobalException();
+    // **************************************************
 
-	// **************************************************
-	// UseExceptionHandler() -> using Microsoft.AspNetCore.Builder;
-	app.UseExceptionHandler("/Errors/Error");
-	// **************************************************
+    // **************************************************
+    // UseExceptionHandler() -> using Microsoft.AspNetCore.Builder;
+    app.UseExceptionHandler("/Errors/Error");
+    // **************************************************
 
-	// **************************************************
-	// The default HSTS value is 30 days.
-	// You may want to change this for production scenarios,
-	// see https://aka.ms/aspnetcore-hsts
-	// UseHsts() -> using Microsoft.AspNetCore.Builder; 
-	app.UseHsts();
-	// **************************************************
+    // **************************************************
+    // The default HSTS value is 30 days.
+    // You may want to change this for production scenarios,
+    // see https://aka.ms/aspnetcore-hsts
+    // UseHsts() -> using Microsoft.AspNetCore.Builder; 
+    app.UseHsts();
+    // **************************************************
 }
 
 // **************************************************

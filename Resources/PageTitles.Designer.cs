@@ -106,11 +106,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create Page.
+        /// </summary>
+        public static string CreatePage {
+            get {
+                return ResourceManager.GetString("CreatePage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Deactivate Account.
         /// </summary>
         public static string DeactivateAccount {
             get {
                 return ResourceManager.GetString("DeactivateAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Page.
+        /// </summary>
+        public static string DeletePage {
+            get {
+                return ResourceManager.GetString("DeletePage", resourceCulture);
             }
         }
         
@@ -160,6 +178,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Page Details.
+        /// </summary>
+        public static string PageDetails {
+            get {
+                return ResourceManager.GetString("PageDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page Index.
+        /// </summary>
+        public static string PageIndex {
+            get {
+                return ResourceManager.GetString("PageIndex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Profile.
         /// </summary>
         public static string Profile {
@@ -192,6 +228,15 @@ namespace Resources {
         public static string UnexpectedError {
             get {
                 return ResourceManager.GetString("UnexpectedError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Page.
+        /// </summary>
+        public static string UpdatePage {
+            get {
+                return ResourceManager.GetString("UpdatePage", resourceCulture);
             }
         }
         

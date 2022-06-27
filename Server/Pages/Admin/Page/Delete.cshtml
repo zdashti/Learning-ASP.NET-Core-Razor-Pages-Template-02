@@ -1,0 +1,51 @@
+﻿@page
+@model Server.Pages.Admin.Page.DeleteModel
+@{
+    var pageTitle =
+        Resources.PageTitles.DeletePage;
+
+    ViewData["PageTitle"] = pageTitle;
+}
+<form method="post">
+
+    <div class="container my-0 my-sm-1 my-md-3 my-lg-5">
+        <div class="row">
+            <div class="col-12 p-3 col-md-8 offset-md-2 p-md-4 col-lg-6 offset-lg-3 p-lg-5 bg-light border border-2 rounded-3 shadow-lg">
+                <fieldset>
+                    <legend>
+                        @(pageTitle)
+                    </legend>
+
+                    <hr />
+
+                    <div class="mb-3">
+                        <label asp-for="ViewModel.Title" class="form-label"></label>
+
+                        <div class="input-group">
+                            <div class="input-group-text"><i class="bi bi-fonts"></i></div>
+                            <input asp-for="ViewModel.Title" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="ViewModel.Description" class="form-label"></label>
+
+                        <div class="input-group">
+                            <div class="input-group-text"><i class="bi bi-file-text"></i></div>
+                            <input asp-for="ViewModel.Description" class="form-control" disabled="disabled" />
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-danger">@(Resources.ButtonCaptions.Delete)</button>
+                    </div>
+                </fieldset>
+
+                <hr class="mt-4" />
+                <div class="text-center">
+                    <a asp-page="./Index">@(Resources.ButtonCaptions.BackToList)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
