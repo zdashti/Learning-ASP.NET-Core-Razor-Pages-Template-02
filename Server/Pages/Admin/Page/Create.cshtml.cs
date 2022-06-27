@@ -1,3 +1,5 @@
+using System;
+
 namespace Server.Pages.Admin.Page
 {
     public class CreateModel : Infrastructure.BasePageModel
@@ -18,16 +20,19 @@ namespace Server.Pages.Admin.Page
 
         public async System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> OnPostAsync()
         {
-            if (HttpContext.User.Identity?.Name == null)
-            {
-                return RedirectToPage("/account/login");
-            }
-            if (ModelState.IsValid == false)
-            {
-                return Page();
-            }
+            //if (HttpContext.User.Identity?.Name == null)
+            //{
+            //    return RedirectToPage("/account/login");
+            //}
+            //if (ModelState.IsValid == false)
+            //{
+            //    return Page();
+            //}
 
-            var userId = new System.Guid(HttpContext.User.Identity.Name);
+            //var userId = new System.Guid(HttpContext.User.Identity.Name);
+
+            var userId = Guid.NewGuid();
+
             var page = new Domain.Cms.Page(userId)
             {
                 Body = ViewModel.Body,

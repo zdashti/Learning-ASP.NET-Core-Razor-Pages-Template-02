@@ -4,7 +4,6 @@ namespace Server.Pages.Admin.Page
 {
     public class UpdateModel : Infrastructure.BasePageModel
     {
-        private Domain.Cms.Page? _page;
         private readonly Persistence.DatabaseContext _context;
 
         public UpdateModel(Persistence.DatabaseContext context) : base()
@@ -23,42 +22,42 @@ namespace Server.Pages.Admin.Page
                 return NotFound();
             }
 
-            _page = await _context.Pages.FirstOrDefaultAsync(page => page.Id == id && page.Deleted == false);
+            var page = await _context.Pages.FirstOrDefaultAsync(page => page.Id == id && page.Deleted == false);
 
-            if (_page == null)
+            if (page == null)
             {
                 return NotFound();
             }
 
             ViewModel = new ViewModels.Pages.Page.UpdatePageViewModel()
             {
-                Body = _page.Body,
-                Title = _page.Title,
-                Author = _page.Author,
-                ImageUrl = _page.ImageUrl,
-                Category = _page.Category,
-                IsActive = _page.IsActive,
-                Keywords = _page.Keywords,
-                Ordering = _page.Ordering,
-                Description = _page.Description,
-                PublishFinishDateTime = _page.PublishFinishDateTime,
-                PublishStartDateTime = _page.PublishStartDateTime,
-                IsCommentingEnabled = _page.IsCommentingEnabled,
+                Body = page.Body,
+                Title = page.Title,
+                Author = page.Author,
+                ImageUrl = page.ImageUrl,
+                Category = page.Category,
+                IsActive = page.IsActive,
+                Keywords = page.Keywords,
+                Ordering = page.Ordering,
+                Description = page.Description,
+                PublishFinishDateTime = page.PublishFinishDateTime,
+                PublishStartDateTime = page.PublishStartDateTime,
+                IsCommentingEnabled = page.IsCommentingEnabled,
             };
 
             return Page();
         }
 
-        public async System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> OnPostAsync()
+        public async System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> OnPostAsync(System.Guid? id)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
             if (HttpContext.User.Identity?.Name == null)
             {
                 return RedirectToPage("/account/login");
-            }
-
-            if (_page == null)
-            {
-                return NotFound();
             }
 
             if (ModelState.IsValid == false)
@@ -68,20 +67,27 @@ namespace Server.Pages.Admin.Page
 
             var userId = new System.Guid(HttpContext.User.Identity.Name);
 
-            _page.Body = ViewModel.Body;
-            _page.Title = ViewModel.Title;
-            _page.Author = ViewModel.Author;
-            _page.Keywords = ViewModel.Keywords;
-            _page.IsActive = ViewModel.IsActive;
-            _page.Category = ViewModel.Category;
-            _page.ImageUrl = ViewModel.ImageUrl;
-            _page.Ordering = ViewModel.Ordering;
-            _page.Description = ViewModel.Description;
-            _page.IsCommentingEnabled = ViewModel.IsCommentingEnabled;
-            _page.PublishStartDateTime = ViewModel.PublishStartDateTime;
-            _page.PublishFinishDateTime = ViewModel.PublishFinishDateTime;
+            var page = await _context.Pages.FirstOrDefaultAsync(page => page.Id == id && page.Deleted == false);
 
-            _page.Update(userId);
+            if (page == null)
+            {
+                return NotFound();
+            }
+
+            page.Body = ViewModel.Body;
+            page.Title = ViewModel.Title;
+            page.Author = ViewModel.Author;
+            page.Keywords = ViewModel.Keywords;
+            page.IsActive = ViewModel.IsActive;
+            page.Category = ViewModel.Category;
+            page.ImageUrl = ViewModel.ImageUrl;
+            page.Ordering = ViewModel.Ordering;
+            page.Description = ViewModel.Description;
+            page.IsCommentingEnabled = ViewModel.IsCommentingEnabled;
+            page.PublishStartDateTime = ViewModel.PublishStartDateTime;
+            page.PublishFinishDateTime = ViewModel.PublishFinishDateTime;
+
+            page.Update(userId);
 
             await _context.SaveChangesAsync();
 

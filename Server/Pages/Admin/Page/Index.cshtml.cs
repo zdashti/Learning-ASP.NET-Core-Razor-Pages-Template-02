@@ -16,13 +16,14 @@ namespace Server.Pages.Admin.Page
         public async System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> OnGetAsync(System.Guid? id)
         {
             ViewModel = await Infrastructure.PaginatedList<ViewModels.Pages.Page.PageItemViewModel>.CreateAsync(
-                _context.Pages.Where(x => x.Deleted == false)
+                source: _context.Pages.Where(x => x.Deleted == false)
                 .Select(page => new ViewModels.Pages.Page.PageItemViewModel()
                 {
                     Author = page.Author,
                     IsActive = page.IsActive,
-                    Title = page.Title
-                }), 0, 10);
+                    Title = page.Title,
+                    Id = page.Id
+                }), pageIndex: 1, pageSize: 10);
             return Page();
         }
     }

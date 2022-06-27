@@ -4,7 +4,6 @@ namespace Server.Pages.Admin.Page
 {
     public class DeleteModel : Infrastructure.BasePageModel
     {
-        private Domain.Cms.Page? _page;
         private readonly Persistence.DatabaseContext _context;
 
         public DeleteModel(Persistence.DatabaseContext context)
@@ -23,32 +22,32 @@ namespace Server.Pages.Admin.Page
                 return NotFound();
             }
 
-            _page = await _context.Pages.FirstOrDefaultAsync(page => page.Id == id && page.Deleted == false);
+            var page = await _context.Pages.FirstOrDefaultAsync(page => page.Id == id && page.Deleted == false);
 
-            if (_page == null)
+            if (page == null)
             {
                 return NotFound();
             }
 
             ViewModel = new ViewModels.Pages.Page.DeletePageViewModel()
             {
-                Title = _page.Title,
-                Description = _page.Description,
+                Title = page.Title,
+                Description = page.Description,
             };
 
             return Page();
         }
 
-        public async System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> OnPostAsync()
+        public async System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult> OnPostAsync(System.Guid? id)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
             if (HttpContext.User.Identity?.Name == null)
             {
                 return RedirectToPage("/account/login");
-            }
-
-            if (_page == null)
-            {
-                return NotFound();
             }
 
             if (ModelState.IsValid == false)
@@ -58,7 +57,14 @@ namespace Server.Pages.Admin.Page
 
             var userId = new System.Guid(HttpContext.User.Identity.Name);
 
-            _page.Delete(userId);
+            var page = await _context.Pages.FirstOrDefaultAsync(page => page.Id == id && page.Deleted == false);
+
+            if (page == null)
+            {
+                return NotFound();
+            }
+
+            page.Delete(userId);
 
             await _context.SaveChangesAsync();
 

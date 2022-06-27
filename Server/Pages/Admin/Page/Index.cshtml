@@ -9,8 +9,9 @@
 
 <div class="row">
     <div class="col table-responsive">
+        <a asp-page="Create">@(Resources.PageTitles.CreatePage)</a>
         <table class="table table-bordered table-sm table-striped table-hover">
-            <caption>Directories</caption>
+            <caption>@(Resources.PageTitles.PageIndex)</caption>
             <thead class="table-primary">
             <tr>
                 <th scope="col">
@@ -26,7 +27,7 @@
                     @Html.DisplayNameFor(model => model.ViewModel[0].IsActive)
                 </th>
                 <th scope="col">
-                   
+
                 </th>
             </tr>
             </thead>
@@ -47,16 +48,17 @@
                         @(item.Author)
                     </td>
                     <td>
-                        @if (item.IsActive){
-                            <i class="bi bi-check"></i>
+                        @if (item.IsActive)
+                        {
+                          <span><i class="bi bi-check"></i></span>
                         }
                         else
                         {
-                            <i class="bi bi-x"></i>
+                            <span><i class="bi bi-x"></i></span>
                         }
                     </td>
                     <td>
-                        <a asp-page="./Edit" asp-route-id="@item.Id">@(Resources.PageTitles.UpdatePage)</a> |
+                        <a asp-page="./Update" asp-route-id="@item.Id">@(Resources.PageTitles.UpdatePage)</a> |
                         <a asp-page="./Details" asp-route-id="@item.Id">@(Resources.PageTitles.PageDetails)</a> |
                         <a asp-page="./Delete" asp-route-id="@item.Id">@(Resources.PageTitles.DeletePage)</a>
                     </td>
@@ -72,7 +74,7 @@
         <a asp-page="./Index"
            asp-route-pageIndex="@(Model.ViewModel.PageIndex - 1)"
            class="btn btn-primary @prevDisabled">
-           @(Resources.ButtonCaptions.Previous)
+            @(Resources.ButtonCaptions.Previous)
         </a>
         <a asp-page="./Index"
            asp-route-pageIndex="@(Model.ViewModel.PageIndex + 1)"
