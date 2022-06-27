@@ -1,4 +1,6 @@
-﻿namespace Persistence
+﻿using Persistence.Configurations.Pages;
+
+namespace Persistence
 {
     public class DatabaseContext : Microsoft.EntityFrameworkCore.DbContext
     {
@@ -20,7 +22,7 @@
             (Microsoft.EntityFrameworkCore.ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly
-                (typeof(Configurations.PageConfiguration).Assembly);
+                (typeof(PageConfiguration).Assembly);
         }
     }
 }

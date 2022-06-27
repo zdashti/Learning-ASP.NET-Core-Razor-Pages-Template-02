@@ -1,4 +1,4 @@
-﻿namespace Persistence.Configurations
+﻿namespace Persistence.Configurations.Pages
 {
     internal class PageConfiguration : object,
         Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<Domain.Cms.Page>
