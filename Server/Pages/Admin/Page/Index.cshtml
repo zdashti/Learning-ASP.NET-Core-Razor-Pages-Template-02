@@ -11,37 +11,30 @@
     <div class="col table-responsive">
         <table class="table table-bordered table-sm table-striped table-hover">
             <caption>Directories</caption>
-
             <thead class="table-primary">
             <tr>
                 <th scope="col">
                     #
                 </th>
                 <th scope="col">
-                    
+                    @Html.DisplayNameFor(model => model.ViewModel[0].Title)
                 </th>
                 <th scope="col">
-                    Contents
+                    @Html.DisplayNameFor(model => model.ViewModel[0].Author)
                 </th>
                 <th scope="col">
-                    Attributes
+                    @Html.DisplayNameFor(model => model.ViewModel[0].IsActive)
                 </th>
                 <th scope="col">
-                    Creation Time
-                </th>
-                <th scope="col">
-                    Last Write Time
-                </th>
-                <th scope="col">
-                    Last Access Time
+                   
                 </th>
             </tr>
             </thead>
 
             <tbody>
-            @for (var index = 0; index <= Model.ViewModel.Items.Count - 1; index++)
+            @for (var index = 0; index <= Model.ViewModel.Count - 1; index++)
             {
-                var item = Model.ViewModel.Items[index];
+                var item = Model.ViewModel[index];
 
                 <tr>
                     <th scope="row">
@@ -54,14 +47,14 @@
                         @(item.Author)
                     </td>
                     <td>
-                            @if (item.IsActive){
-                                <i class="bi bi-check"></i>
-                            }
-                            else
-                            {
-                                <i class="bi bi-x"></i>
-                            }
-                        </td>
+                        @if (item.IsActive){
+                            <i class="bi bi-check"></i>
+                        }
+                        else
+                        {
+                            <i class="bi bi-x"></i>
+                        }
+                    </td>
                     <td>
                         <a asp-page="./Edit" asp-route-id="@item.Id">@(Resources.PageTitles.UpdatePage)</a> |
                         <a asp-page="./Details" asp-route-id="@item.Id">@(Resources.PageTitles.PageDetails)</a> |
@@ -71,5 +64,20 @@
             }
             </tbody>
         </table>
+        @{
+            var prevDisabled = !Model.ViewModel.HasPreviousPage ? "disabled" : "";
+            var nextDisabled = !Model.ViewModel.HasNextPage ? "disabled" : "";
+        }
+
+        <a asp-page="./Index"
+           asp-route-pageIndex="@(Model.ViewModel.PageIndex - 1)"
+           class="btn btn-primary @prevDisabled">
+           @(Resources.ButtonCaptions.Previous)
+        </a>
+        <a asp-page="./Index"
+           asp-route-pageIndex="@(Model.ViewModel.PageIndex + 1)"
+           class="btn btn-primary @nextDisabled">
+            @(Resources.ButtonCaptions.Next)
+        </a>
     </div>
 </div>
