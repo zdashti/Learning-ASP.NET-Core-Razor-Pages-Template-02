@@ -1,6 +1,6 @@
-//using System.Linq;
-//using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using System.Linq;
 
 namespace Server.Pages.Admin.Pages;
 
@@ -13,10 +13,20 @@ public class IndexModel : Infrastructure.BasePageModelWithDatabaseContext
         Microsoft.Extensions.Logging.ILogger<IndexModel> logger) : base(databaseContext: databaseContext)
     {
         Logger = logger;
+
+        ViewModel =
+            new System.Collections.Generic.List
+                <ViewModels.Pages.Admin.Pages.IndexItemViewModel>();
     }
 
     // **********
     private Microsoft.Extensions.Logging.ILogger<IndexModel> Logger { get; }
+    // **********
+
+    // **********
+    public System.Collections.Generic.IList
+        <ViewModels.Pages.Admin.Pages.IndexItemViewModel> ViewModel
+    { get; private set; }
     // **********
 
     // TO DO: Let Users Select Page Size
@@ -26,14 +36,30 @@ public class IndexModel : Infrastructure.BasePageModelWithDatabaseContext
     {
         try
         {
+            ViewModel =
+                await
+                    DatabaseContext.Pages
+                        .OrderBy(current => current.Ordering)
+                        .ThenBy(current => current.Title)
+                        .Select(current => new ViewModels.Pages.Admin.Pages.IndexItemViewModel
+                        {
+                            Id = current.Id,
+                            Title = current.Title,
+                            IsActive = current.IsActive,
+                            Ordering = current.Ordering,
+                            IsFeatured = current.IsFeatured,
+                            InsertDateTime = current.InsertDateTime,
+                            UpdateDateTime = current.UpdateDateTime,
+                        })
+                        .ToListAsync();
         }
         catch (System.Exception ex)
         {
-            Logger.LogError(message: ex.Message);
+            Logger.LogError
+                (message: Domain.SeedWork.Constants.Logger.ErrorMessage, args: ex.Message);
 
-            //System.Console.WriteLine(value: ex.Message);
-
-            AddToastError(message: Resources.Messages.Errors.UnexpectedError);
+            AddPageError
+                (message: Resources.Messages.Errors.UnexpectedError);
         }
         finally
         {

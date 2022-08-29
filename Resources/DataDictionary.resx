@@ -471,4 +471,7 @@
   <data name="LastLoginDateTime" xml:space="preserve">
     <value>Last Login Date Time</value>
   </data>
+  <data name="Pages" xml:space="preserve">
+    <value>Pages</value>
+  </data>
 </root>

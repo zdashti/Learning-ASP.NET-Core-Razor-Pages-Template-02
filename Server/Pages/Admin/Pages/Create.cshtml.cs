@@ -82,6 +82,7 @@ public class CreateModel : Infrastructure.BasePageModelWithDatabaseContext
 
             var newEntity = new Domain.Page(ViewModel.Title, ViewModel.PageCategoryId, userId)
             {
+                IsSystemic = false,
                 Title = fixedTitle,
                 Author = fixedAuthor,
                 Body = ViewModel.Body,

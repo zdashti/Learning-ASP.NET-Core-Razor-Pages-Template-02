@@ -38,6 +38,10 @@ public class CreateViewModel : object
     // **********
 
     // **********
+    [System.ComponentModel.DataAnnotations.Required
+    (AllowEmptyStrings = false,
+        ErrorMessageResourceType = typeof(Resources.Messages.Validations),
+        ErrorMessageResourceName = nameof(Resources.Messages.Validations.Required))]
     [System.ComponentModel.DataAnnotations.Display
         (ResourceType = typeof(Resources.DataDictionary),
         Name = nameof(Resources.DataDictionary.Password))]

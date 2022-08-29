@@ -1,36 +1,117 @@
 ﻿@page
 @model Server.Pages.Admin.Pages.IndexModel
-@inject Infrastructure.Settings.ApplicationSettings applicationSettings
 
 @{
-	//@if (Model.ViewModel == null)
-	//{
-	//	return;
-	//}
-
-	var pageTitle =
-		Resources.PageTitles.PageManagement;
+    var pageTitle =
+        $"{Resources.ButtonCaptions.ListOf} {Resources.DataDictionary.Pages}";
 
 	ViewData[Constants.ViewDataKeyName.PageTitle] = pageTitle;
 
-	if (System.Threading.Thread.CurrentThread.CurrentUICulture.TextInfo.IsRightToLeft)
-	{
-		Layout =
-			"Layouts/Rtl/_Layout";
-	}
-	else
-	{
-		Layout =
-			"Layouts/Ltr/_Layout";
-	}
-}
-<div class="container my-0 my-sm-1 my-md-3 my-lg-5">
 
-	<a asp-page="/Admin/PageManager/create" asp-route-returnurl="/Admin/PageManager" class="btn btn-primary btn-sm w-25 my-4" role="button" aria-pressed="true">
-		@*<i class="bi bi-person-plus-fill"></i>*@
-		@(string.Format(Resources.ButtonCaptions.CreateNew, Resources.DataDictionary.Page))
-	</a>
+<section-page-header>
+    @(pageTitle)
+</section-page-header>
 
-	<div class="row">
-	</div>
-</div>
+<section-page-actions>
+    <a asp-page="Create">
+        @(Html.DtatGetLinkCaptionForCreate())
+    </a>
+</section-page-actions>
+
+<section-table>
+    <table>
+        <caption>
+            @(pageTitle)
+        </caption>
+        
+        <thead>
+        <tr>
+            <th>
+                @(Resources.DataDictionary.RowNumber)
+            </th>
+            <th>
+            </th>
+            <th>
+                @(Resources.DataDictionary.Title)
+            </th>
+            <th>
+                @(Resources.DataDictionary.IsActive)
+            </th>
+            <th>
+                @(Resources.DataDictionary.Ordering)
+            </th>
+            <th>
+                @(Resources.DataDictionary.IsFeatured)
+            </th>
+            <th>
+                @(Resources.DataDictionary.InsertDateTime)
+            </th>
+            <th>
+                @(Resources.DataDictionary.UpdateDateTime)
+            </th>
+        </tr>
+        </thead>
+        
+        <tbody>
+        @for (var index = 0; index <= Model.ViewModel.Count - 1; index++)
+        {
+            var item = Model.ViewModel[index];
+
+            <tr>
+                @*
+					<td>
+						@(index + 1)
+					</td>
+					*@
+
+                @*
+					<td class="text-center">
+						@(index + 1)
+					</td>
+					*@
+
+                @*
+					<td class="text-center">
+						@(Html.DtatDisplayInteger(value: index + 1))
+					</td>
+					*@
+
+                @(Html.DtatDisplayRowNumberWithTd(value: index + 1))
+
+                <table-actions>
+                    <a asp-page="Details" asp-route-id="@(item.Id)">
+                        @(Html.DtatGetIconDetails())
+                    </a>
+                    <a asp-page="Update" asp-route-id="@(item.Id)">
+                        @(Html.DtatGetIconUpdate())
+                    </a>
+                    <a asp-page="Delete" asp-route-id="@(item.Id)">
+                        @(Html.DtatGetIconDelete())
+                    </a>
+                </table-actions>
+
+                @*
+					<td>
+						@(item.IsActive)
+					</td>
+					*@
+
+                <td>
+                    @(item.Name)
+                </td>
+
+                @(Html.DtatDisplayBooleanWithTd(value: item.IsActive))
+
+                @(Html.DtatDisplayIntegerWithTd(value: item.Ordering))
+
+                @(Html.DtatDisplayIntegerWithTd(value: item.UserCount))
+
+                @(Html.DtatDisplayDateTimeWithTd(value: item.InsertDateTime))
+
+                @(Html.DtatDisplayDateTimeWithTd(value: item.UpdateDateTime))
+            </tr>
+        }
+        </tbody>
+
+    </table>
+</section-table>
