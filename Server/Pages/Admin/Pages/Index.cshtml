@@ -58,24 +58,6 @@
             var item = Model.ViewModel[index];
 
             <tr>
-                @*
-					<td>
-						@(index + 1)
-					</td>
-					*@
-
-                @*
-					<td class="text-center">
-						@(index + 1)
-					</td>
-					*@
-
-                @*
-					<td class="text-center">
-						@(Html.DtatDisplayInteger(value: index + 1))
-					</td>
-					*@
-
                 @(Html.DtatDisplayRowNumberWithTd(value: index + 1))
 
                 <table-actions>
@@ -90,21 +72,15 @@
                     </a>
                 </table-actions>
 
-                @*
-					<td>
-						@(item.IsActive)
-					</td>
-					*@
-
                 <td>
-                    @(item.Name)
+                    @(item.Title)
                 </td>
 
                 @(Html.DtatDisplayBooleanWithTd(value: item.IsActive))
 
                 @(Html.DtatDisplayIntegerWithTd(value: item.Ordering))
 
-                @(Html.DtatDisplayIntegerWithTd(value: item.UserCount))
+                @(Html.DtatDisplayBooleanWithTd(value: item.IsFeatured))
 
                 @(Html.DtatDisplayDateTimeWithTd(value: item.InsertDateTime))
 
