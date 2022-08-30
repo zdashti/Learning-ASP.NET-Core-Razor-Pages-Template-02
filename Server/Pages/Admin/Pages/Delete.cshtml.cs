@@ -112,7 +112,20 @@ public class DeleteModel : Infrastructure.BasePageModelWithDatabaseContext
                 return RedirectToPage(pageName: "Index");
             }
 
-            DatabaseContext.Remove(entity: foundedItem);
+            if (foundedItem.IsUndeletable)
+            {
+                AddToastError
+                (message: string.Format(
+                    Resources.Messages.Errors.UnableTo,
+                    Resources.ButtonCaptions.Delete,
+                    Resources.DataDictionary.Page));
+
+                return RedirectToPage(pageName: "Index");
+            }
+
+            var userId = new System.Guid(HttpContext.User.Identity.Name);
+
+            foundedItem.Delete(userId);
 
             await DatabaseContext.SaveChangesAsync();
             // **************************************************

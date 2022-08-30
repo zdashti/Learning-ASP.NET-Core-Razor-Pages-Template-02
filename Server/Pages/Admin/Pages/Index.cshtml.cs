@@ -41,6 +41,9 @@ public class IndexModel : Infrastructure.BasePageModelWithDatabaseContext
                     DatabaseContext.Pages
                         .OrderBy(current => current.Ordering)
                         .ThenBy(current => current.Title)
+                        .Where(current => current.IsDeleted == false)
+                        .Skip(pageSize * (pageNumber - 1))
+                        .Take(pageSize)
                         .Select(current => new ViewModels.Pages.Admin.Pages.IndexItemViewModel
                         {
                             Id = current.Id,

@@ -407,5 +407,12 @@ public class Page :
 
 		DeleteDateTime = SeedWork.Utility.Now;
 	}
+
+	public void Delete(System.Guid? userid)
+	{
+		IsDeleted = true;
+		SetDeleteDateTime();
+		RemoverUserId = userid;
+	}
 	#endregion /Method(s)
 }

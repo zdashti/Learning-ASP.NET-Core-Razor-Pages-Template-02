@@ -157,7 +157,9 @@ public class UpdateModel : Infrastructure.BasePageModelWithDatabaseContext
             var foundedAny =
                 await
                     DatabaseContext.Pages
-                        .Where(current => current.Id != ViewModel.Id)
+                        .Where(current =>
+                            current.Id != ViewModel.Id &&
+                            current.IsDeleted == false)
                         .Where(current => current.Title.ToLower() == fixedTitle.ToLower())
                         .AnyAsync();
 

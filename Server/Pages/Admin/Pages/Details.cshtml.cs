@@ -41,7 +41,9 @@ public class DetailsModel : Infrastructure.BasePageModelWithDatabaseContext
             ViewModel =
                 await
                 DatabaseContext.Pages
-                .Where(current => current.Id == id.Value)
+                .Where(current =>
+                    current.Id == id.Value &&
+                    current.IsDeleted == false)
                 .Select(current => new ViewModels.Pages.Admin.Pages.DetailsOrDeleteViewModel()
                 {
                     Id = current.Id,
