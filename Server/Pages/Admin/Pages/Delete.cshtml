@@ -2,37 +2,26 @@
 @model Server.Pages.Admin.Pages.DeleteModel
 
 @{
-	var pageTitle =
-		$"{Resources.ButtonCaptions.Delete} {Resources.DataDictionary.Page}";
+    var pageTitle =
+        $"{Resources.ButtonCaptions.Delete} {Resources.DataDictionary.Page}";
 
-	ViewData[Constants.ViewDataKeyName.PageTitle] = pageTitle;
-
-	if (System.Threading.Thread.CurrentThread.CurrentUICulture.TextInfo.IsRightToLeft)
-	{
-		Layout =
-			"Layouts/Rtl/_Layout";
-	}
-	else
-	{
-		Layout =
-			"Layouts/Ltr/_Layout";
-	}
+    ViewData[Constants.ViewDataKeyName.PageTitle] = pageTitle;
 }
 
 <section-form>
-	<fieldset disabled>
-		<section-form-header>
-			@(pageTitle)
-		</section-form-header>
+    <fieldset disabled>
+        <section-form-header>
+            @(pageTitle)
+        </section-form-header>
 
-		<partial name="PartialViews/_DisplayPageMessages" />
+        <partial name="PartialViews/_DisplayPageMessages" />
 
-		<section-form-field>
-			<label asp-for="ViewModel.Id"></label>
-			<input asp-for="ViewModel.Id" />
-		</section-form-field>
+        <section-form-field>
+            <label asp-for="ViewModel.Id"></label>
+            <input asp-for="ViewModel.Id" />
+        </section-form-field>
 
-		 <section-form-field>
+        <section-form-field>
             <label asp-for="ViewModel.Title"></label>
             <input asp-for="ViewModel.Title" />
             <span asp-validation-for="ViewModel.Title"></span>
@@ -150,25 +139,25 @@
             <input asp-for="ViewModel.DoesSearchEnginesFollowIt" />
             <label asp-for="ViewModel.DoesSearchEnginesFollowIt"></label>
         </section-form-check>
-	</fieldset>
+    </fieldset>
 
-	<form method="post">
-		<section-form-buttons>
-			<input type="hidden" asp-for="ViewModel.Id" />
+    <form method="post">
+        <section-form-buttons>
+            <input type="hidden" asp-for="ViewModel.Id" />
 
-			<button-delete />
-		</section-form-buttons>
-	</form>
+            <button-delete />
+        </section-form-buttons>
+    </form>
 
-	<section-form-footer>
-		<a asp-page="Index">
-			@(Html.DtatGetLinkCaptionForList())
-		</a>
-		<a asp-page="Details" asp-route-id="@(Model.ViewModel.Id)">
-			@(Html.DtatGetLinkCaptionForDetails())
-		</a>
-		<a asp-page="Update" asp-route-id="@(Model.ViewModel.Id)">
-			@(Html.DtatGetLinkCaptionForUpdate())
-		</a>
-	</section-form-footer>
+    <section-form-footer>
+        <a asp-page="Index">
+            @(Html.DtatGetLinkCaptionForList())
+        </a>
+        <a asp-page="Details" asp-route-id="@(Model.ViewModel.Id)">
+            @(Html.DtatGetLinkCaptionForDetails())
+        </a>
+        <a asp-page="Update" asp-route-id="@(Model.ViewModel.Id)">
+            @(Html.DtatGetLinkCaptionForUpdate())
+        </a>
+    </section-form-footer>
 </section-form>

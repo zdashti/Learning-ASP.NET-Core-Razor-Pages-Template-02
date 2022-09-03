@@ -5,8 +5,8 @@
     var pageTitle =
         $"{Resources.ButtonCaptions.ListOf} {Resources.DataDictionary.Pages}";
 
-	ViewData[Constants.ViewDataKeyName.PageTitle] = pageTitle;
-
+    ViewData[Constants.ViewDataKeyName.PageTitle] = pageTitle;
+}
 
 <section-page-header>
     @(pageTitle)
@@ -23,70 +23,70 @@
         <caption>
             @(pageTitle)
         </caption>
-        
+
         <thead>
-        <tr>
-            <th>
-                @(Resources.DataDictionary.RowNumber)
-            </th>
-            <th>
-            </th>
-            <th>
-                @(Resources.DataDictionary.Title)
-            </th>
-            <th>
-                @(Resources.DataDictionary.IsActive)
-            </th>
-            <th>
-                @(Resources.DataDictionary.Ordering)
-            </th>
-            <th>
-                @(Resources.DataDictionary.IsFeatured)
-            </th>
-            <th>
-                @(Resources.DataDictionary.InsertDateTime)
-            </th>
-            <th>
-                @(Resources.DataDictionary.UpdateDateTime)
-            </th>
-        </tr>
-        </thead>
-        
-        <tbody>
-        @for (var index = 0; index <= Model.ViewModel.Count - 1; index++)
-        {
-            var item = Model.ViewModel[index];
-
             <tr>
-                @(Html.DtatDisplayRowNumberWithTd(value: index + 1))
-
-                <table-actions>
-                    <a asp-page="Details" asp-route-id="@(item.Id)">
-                        @(Html.DtatGetIconDetails())
-                    </a>
-                    <a asp-page="Update" asp-route-id="@(item.Id)">
-                        @(Html.DtatGetIconUpdate())
-                    </a>
-                    <a asp-page="Delete" asp-route-id="@(item.Id)">
-                        @(Html.DtatGetIconDelete())
-                    </a>
-                </table-actions>
-
-                <td>
-                    @(item.Title)
-                </td>
-
-                @(Html.DtatDisplayBooleanWithTd(value: item.IsActive))
-
-                @(Html.DtatDisplayIntegerWithTd(value: item.Ordering))
-
-                @(Html.DtatDisplayBooleanWithTd(value: item.IsFeatured))
-
-                @(Html.DtatDisplayDateTimeWithTd(value: item.InsertDateTime))
-
-                @(Html.DtatDisplayDateTimeWithTd(value: item.UpdateDateTime))
+                <th>
+                    @(Resources.DataDictionary.RowNumber)
+                </th>
+                <th>
+                </th>
+                <th>
+                    @(Resources.DataDictionary.Title)
+                </th>
+                <th>
+                    @(Resources.DataDictionary.IsActive)
+                </th>
+                <th>
+                    @(Resources.DataDictionary.Ordering)
+                </th>
+                <th>
+                    @(Resources.DataDictionary.IsFeatured)
+                </th>
+                <th>
+                    @(Resources.DataDictionary.InsertDateTime)
+                </th>
+                <th>
+                    @(Resources.DataDictionary.UpdateDateTime)
+                </th>
             </tr>
-        }
+        </thead>
+
+        <tbody>
+            @for (var index = 0; index <= Model.ViewModel.Count - 1; index++)
+            {
+                var item = Model.ViewModel[index];
+
+                <tr>
+                    @(Html.DtatDisplayRowNumberWithTd(value: index + 1))
+
+                    <table-actions>
+                        <a asp-page="Details" asp-route-id="@(item.Id)">
+                            @(Html.DtatGetIconDetails())
+                        </a>
+                        <a asp-page="Update" asp-route-id="@(item.Id)">
+                            @(Html.DtatGetIconUpdate())
+                        </a>
+                        <a asp-page="Delete" asp-route-id="@(item.Id)">
+                            @(Html.DtatGetIconDelete())
+                        </a>
+                    </table-actions>
+
+                    <td>
+                        @(item.Title)
+                    </td>
+
+                    @(Html.DtatDisplayBooleanWithTd(value: item.IsActive))
+
+                    @(Html.DtatDisplayIntegerWithTd(value: item.Ordering))
+
+                    @(Html.DtatDisplayBooleanWithTd(value: item.IsFeatured))
+
+                    @(Html.DtatDisplayDateTimeWithTd(value: item.InsertDateTime))
+
+                    @(Html.DtatDisplayDateTimeWithTd(value: item.UpdateDateTime))
+                </tr>
+            }
         </tbody>
 
     </table>

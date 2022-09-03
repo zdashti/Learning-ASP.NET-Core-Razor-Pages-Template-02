@@ -5,8 +5,8 @@ using ViewModels.Pages.Admin.Pages;
 
 namespace Server.Pages.Admin.Pages;
 
-[Microsoft.AspNetCore.Authorization.Authorize
-    (Roles = Infrastructure.Constants.Role.Admin)]
+[Microsoft.AspNetCore.Authorization
+    .Authorize(Roles = Constants.Role.Admin)]
 public class CreateModel : Infrastructure.BasePageModelWithDatabaseContext
 {
     public CreateModel

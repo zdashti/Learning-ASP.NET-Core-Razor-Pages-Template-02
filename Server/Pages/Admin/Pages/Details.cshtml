@@ -5,18 +5,7 @@
     var pageTitle =
         $"{Resources.ButtonCaptions.Details} {Resources.DataDictionary.Page}";
 
-	ViewData[Constants.ViewDataKeyName.PageTitle] = pageTitle;
-
-	if (System.Threading.Thread.CurrentThread.CurrentUICulture.TextInfo.IsRightToLeft)
-	{
-		Layout =
-			"Layouts/Rtl/_Layout";
-	}
-	else
-	{
-		Layout =
-			"Layouts/Ltr/_Layout";
-	}
+    ViewData[Constants.ViewDataKeyName.PageTitle] = pageTitle;
 }
 
 <section-form>
