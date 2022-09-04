@@ -18,135 +18,51 @@
 
             <partial name="PartialViews/_DisplayPageMessages" />
 
-            <section-form-field>
-                <label asp-for="ViewModel.Title"></label>
-                <input asp-for="ViewModel.Title" />
-                <span asp-validation-for="ViewModel.Title"></span>
-            </section-form-field>
+            <dtat-full-input asp-for="ViewModel.Title" />
 
-            <section-form-field>
-                <label asp-for="ViewModel.Author"></label>
-                <input asp-for="ViewModel.Author" />
-                <span asp-validation-for="ViewModel.Author"></span>
-            </section-form-field>
+            <dtat-full-input asp-for="ViewModel.Author" />
 
-            <section-form-field>
-                <label asp-for="ViewModel.Body"></label>
-                <textarea asp-for="ViewModel.Body" />
-                <span asp-validation-for="ViewModel.Body"></span>
-            </section-form-field>
+            <dtat-full-textarea asp-for="ViewModel.Body" />
 
-            <section-form-field>
-                <label asp-for="ViewModel.Description"></label>
-                <textarea asp-for="ViewModel.Description" />
-                <span asp-validation-for="ViewModel.Description"></span>
-            </section-form-field>
+            <dtat-full-textarea asp-for="ViewModel.Description" />
 
-            <section-form-field>
-                <label asp-for="ViewModel.Introduction"></label>
-                <textarea asp-for="ViewModel.Introduction" />
-                <span asp-validation-for="ViewModel.Introduction"></span>
-            </section-form-field>
+            <dtat-full-textarea asp-for="ViewModel.Introduction" />
 
-            <section-form-field>
-                <label asp-for="ViewModel.LayoutId"></label>
-                <input asp-for="ViewModel.LayoutId" />
-                <span asp-validation-for="ViewModel.LayoutId"></span>
-            </section-form-field>
+            <dtat-full-input asp-for="ViewModel.LayoutId" />
 
-            <section-form-field>
-                <label asp-for="ViewModel.Category"></label>
-                <input asp-for="ViewModel.Category" />
-                <span asp-validation-for="ViewModel.Category"></span>
-            </section-form-field>
+            <dtat-full-input asp-for="ViewModel.Category" />
 
-            <section-form-field>
-                <label asp-for="ViewModel.ImageUrl"></label>
-                <input asp-for="ViewModel.ImageUrl" />
-                <span asp-validation-for="ViewModel.ImageUrl"></span>
-            </section-form-field>
+            <dtat-full-input asp-for="ViewModel.ImageUrl" />
 
-            <section-form-field>
-                <label asp-for="ViewModel.Ordering"></label>
-                <input asp-for="ViewModel.Ordering" />
-                <span asp-validation-for="ViewModel.Ordering"></span>
-            </section-form-field>
+            <dtat-full-input asp-for="ViewModel.Ordering" />
 
-            <section-form-field>
-                <label asp-for="ViewModel.Password"></label>
-                <input asp-for="ViewModel.Password" type="password" />
-                <span asp-validation-for="ViewModel.Password"></span>
-            </section-form-field>
+            <dtat-full-input asp-for="ViewModel.Password" />
 
-            <section-form-field>
-                <label asp-for="ViewModel.Copyright"></label>
-                <input asp-for="ViewModel.Copyright" />
-                <span asp-validation-for="ViewModel.Copyright"></span>
-            </section-form-field>
+            <dtat-full-input asp-for="ViewModel.Copyright" />
 
-            <section-form-field>
-                <label asp-for="ViewModel.Classification"></label>
-                <input asp-for="ViewModel.Classification" />
-                <span asp-validation-for="ViewModel.Classification"></span>
-            </section-form-field>
+            <dtat-full-input asp-for="ViewModel.Classification" />
 
-            <section-form-field>
-                <label asp-for="ViewModel.PublishStartDateTime"></label>
-                <input asp-for="ViewModel.PublishStartDateTime" type="datetime" />
-                <span asp-validation-for="ViewModel.PublishStartDateTime"></span>
-            </section-form-field>
+            <dtat-full-input asp-for="ViewModel.PublishStartDateTime" />
 
-            <section-form-field>
-                <label asp-for="ViewModel.PublishFinishDateTime"></label>
-                <input asp-for="ViewModel.PublishFinishDateTime" type="datetime" />
-                <span asp-validation-for="ViewModel.PublishFinishDateTime"></span>
-            </section-form-field>
+            <dtat-full-input asp-for="ViewModel.PublishFinishDateTime" />
 
-            <section-form-check>
-                <input asp-for="ViewModel.IsActive" />
-                <label asp-for="ViewModel.IsActive"></label>
-            </section-form-check>
+            <dtat-full-checkbox asp-for="ViewModel.IsActive" />
 
-            <section-form-check>
-                <input asp-for="ViewModel.DisplayCreatorUser" />
-                <label asp-for="ViewModel.DisplayCreatorUser"></label>
-            </section-form-check>
+            <dtat-full-checkbox asp-for="ViewModel.DisplayCreatorUser" />
 
-            <section-form-check>
-                <input asp-for="ViewModel.IsCommentingEnabled" />
-                <label asp-for="ViewModel.IsCommentingEnabled"></label>
-            </section-form-check>
+            <dtat-full-checkbox asp-for="ViewModel.IsCommentingEnabled" />
 
-            <section-form-check>
-                <input asp-for="ViewModel.IsFeatured" />
-                <label asp-for="ViewModel.IsFeatured"></label>
-            </section-form-check>
+            <dtat-full-checkbox asp-for="ViewModel.IsFeatured" />
 
-            <section-form-check>
-                <input asp-for="ViewModel.HasAttachment" />
-                <label asp-for="ViewModel.HasAttachment"></label>
-            </section-form-check>
+            <dtat-full-checkbox asp-for="ViewModel.HasAttachment" />
 
-            <section-form-check>
-                <input asp-for="ViewModel.IsUnupdatable" />
-                <label asp-for="ViewModel.IsUnupdatable"></label>
-            </section-form-check>
+            <dtat-full-checkbox asp-for="ViewModel.IsUnupdatable" />
 
-            <section-form-check>
-                <input asp-for="ViewModel.IsUndeletable" />
-                <label asp-for="ViewModel.IsUndeletable"></label>
-            </section-form-check>
+            <dtat-full-checkbox asp-for="ViewModel.IsUndeletable" />
 
-            <section-form-check>
-                <input asp-for="ViewModel.DoesSearchEnginesIndexIt" />
-                <label asp-for="ViewModel.DoesSearchEnginesIndexIt"></label>
-            </section-form-check>
+            <dtat-full-checkbox asp-for="ViewModel.DoesSearchEnginesIndexIt" />
 
-            <section-form-check>
-                <input asp-for="ViewModel.DoesSearchEnginesFollowIt" />
-                <label asp-for="ViewModel.DoesSearchEnginesFollowIt"></label>
-            </section-form-check>
-
+            <dtat-full-checkbox asp-for="ViewModel.DoesSearchEnginesFollowIt" />
         </fieldset>
 
         <section-form-buttons>
