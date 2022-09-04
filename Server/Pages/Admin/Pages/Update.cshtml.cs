@@ -98,7 +98,7 @@ public class UpdateModel : Infrastructure.BasePageModelWithDatabaseContext
         catch (System.Exception ex)
         {
             Logger.LogError
-                (message: Domain.SeedWork.Constants.Logger.ErrorMessage,
+                (message: Constants.Logger.ErrorMessage,
                 args: ex.Message);
 
             AddToastError
@@ -227,7 +227,7 @@ public class UpdateModel : Infrastructure.BasePageModelWithDatabaseContext
         catch (System.Exception ex)
         {
             Logger.LogError
-                 (message: Domain.SeedWork.Constants.Logger.ErrorMessage,
+                 (message: Constants.Logger.ErrorMessage,
                  args: ex.Message);
 
             AddToastError

@@ -70,7 +70,7 @@ public class DeleteModel : Infrastructure.BasePageModelWithDatabaseContext
             catch (System.Exception ex)
             {
                 Logger.LogError
-                (message: Domain.SeedWork.Constants.Logger.ErrorMessage, args: ex.Message);
+                (message: Constants.Logger.ErrorMessage, args: ex.Message);
 
                 AddToastError
                     (message: Resources.Messages.Errors.UnexpectedError);
@@ -143,7 +143,7 @@ public class DeleteModel : Infrastructure.BasePageModelWithDatabaseContext
         catch (System.Exception ex)
         {
             Logger.LogError
-                (message: Domain.SeedWork.Constants.Logger.ErrorMessage, args: ex.Message);
+                (message: Constants.Logger.ErrorMessage, args: ex.Message);
 
             AddToastError
                 (message: Resources.Messages.Errors.UnexpectedError);

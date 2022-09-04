@@ -27,7 +27,7 @@ public class DetailsOrDeleteViewModel : UpdateViewModel
         {
             var result =
                 InsertDateTime.ToString
-                    (format: Domain.SeedWork.Constants.Format.DateTime);
+                    (format: Constants.Format.DateTime);
 
             return result;
         }
@@ -53,7 +53,7 @@ public class DetailsOrDeleteViewModel : UpdateViewModel
         {
             var result =
                 UpdateDateTime.ToString
-                    (format: Domain.SeedWork.Constants.Format.DateTime);
+                    (format: Constants.Format.DateTime);
 
             return result;
         }
